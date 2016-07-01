@@ -1,0 +1,12 @@
+.loading .bd .weui_btn_primary {
+  background: #208dd2;
+}
+.loading .bd .weui_btn_primary:active {
+  background: #208dd2;
+}
+.loading .bd .weui_btn_primary:link {
+  background: #208dd2;
+}
+.loading .bd .weui_cells_margin {
+  margin-top: 25px;
+}

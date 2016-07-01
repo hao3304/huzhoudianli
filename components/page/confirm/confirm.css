@@ -1,0 +1,12 @@
+.confirm .bd .weui_article {
+  text-align: center;
+}
+.confirm .bd .weui_btn_primary {
+  background: #208dd2;
+}
+.confirm .bd .weui_btn_primary:active {
+  background: #208dd2;
+}
+.confirm .bd .weui_btn_primary:link {
+  background: #208dd2;
+}

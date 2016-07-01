@@ -1,4 +1,29 @@
-<div>
-    我是确认页面
-    <a v-link="{path:'/auth'}">去认证页面</a>
+<div class="confirm">
+    <header class="header-bar header-bar-nav">
+        <!--<a href="#" style="height: 44px; line-height: 44px;"><i class="iconfont icon-fanhui header-icon"></i></a>-->
+        <h1 class="header-title">湖州国网电力</h1>
+    </header>
+
+    <div class="container container-padder" id="container">
+        <div class="cell">
+            <div class="bd">
+
+                <article class="weui_article">
+                    <section>
+                        <p>联通为您提供更优质的电力服务，</p>
+                        <p>是否每月接收电费电子账单及其它电力服务！</p>
+                    </section>
+                </article>
+
+            </div>
+
+            <div class="bd spacing">
+                <a href="javascript:;" class="weui_btn weui_btn_primary" v-link="{path:'/auth'}">接收</a>
+            </div>
+
+        </div>
+    </div>
+
+   <!-- <a v-link="{path:'/auth'}">去认证页面</a> -->
+
 </div>
