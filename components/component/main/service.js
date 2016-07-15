@@ -6,7 +6,7 @@
 /**
  * Created by jack on 16/6/14.
  */
-var prefix = "";
+var prefix = "http://localhost:8080";
 //var prefix = "http://192.168.100.104:8002";
 
 Date.prototype.Format = function (fmt) { //author: meizz
@@ -27,7 +27,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
 
 function GetQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)","i");
-    var r = window.location.hash.split("?")[1].match(reg);
+    var r = window.location.search.split("?")[1].match(reg);
     if (r!=null) return (r[2]); return null;
 }
 
@@ -41,52 +41,35 @@ function co(callback){
     }
 }
 
-
 /**
- * 获取我的排班列表
- * @param p 查询参数
- * @param c 回调
- */
-function dutylist(p,c){
-    $.post(prefix +"/hd/sche/dutylist.json",p,co(c),"json")
-}
-
-/**
- * 我的调班列表
+ * 获取小区名称列表
  * @param p
  * @param c
  */
-function myList(p,c){
-    $.post(prefix+"/hd/sche/list.json",p,co(c),"json");
+function community(p,c){
+    $.post(prefix +"/xqxxcj/elec/community/query.json",p,co(c),"json");
+}
+/**
+ * 根据小区、幢号查幢号下的门牌号和电力户号
+ * @param p {building:幢数,comid:小区id}
+ * @param c
+ */
+function elec(p,c){
+    $.post(prefix +"/xqxxcj/userinfo/elec/query.json",p,co(c),"json");
 }
 
 /**
- * 获取人员信息
- * @param p
+ * 电力用户信息更新
+ * @param p {elecid:string,comid:string,building:string,house:string,mobile:string}
  * @param c
  */
-function getInfo(p,c){
-    $.post(prefix+"/hd/token/info.json",p,co(c),"json");
-}
-
-/**
- * 调班信息保存接口
- * @param p   action 1:申请调班 2: 审批调班 3:拒绝调班
- * @param c
- */
-function save(p,c){
-    $.post(prefix+"/hd/sche/save.json",p,co(c),"json");
-}
-
-function detail(p,c){
-    $.post(prefix +"/hd/sche/detail.json",p,co(c),"json");
+function update(p,c){
+    $.post(prefix +"/xqxxcj/userinfo/elec/update.json",p,co(c),"json");
 }
 
 module.exports = {
     GetQueryString:GetQueryString,
-    dutylist:dutylist,
-    myList:myList,
-    getInfo:getInfo,
-    save:save,
-    detail:detail
+    community:community,
+    elec:elec,
+    update:update
 };

@@ -6,6 +6,8 @@ var Vue = require("component_modules/vue.js");
 var Router = require("component_modules/vue-router.js");
 var Service = require("main/service.js");
 
+Vue.component("loading",require("loading/index.js"));
+
 Vue.use(Router);
 
 
@@ -27,6 +29,9 @@ var App = Vue.extend({
     }
 });
 
+router.redirect({
+    "/":"/confirm"
+});
 
 router.map({
     "/auth":{
@@ -35,10 +40,15 @@ router.map({
     "/confirm":{
         component:require("page/confirm/confirm.js") /*审核页面*/
     },
-    "/login":{
-        component:require("page/login/login.js") /*调班给我*/
+    //"/login":{
+    //    component:require("page/login/login.js") /*调班给我*/
+    //},
+    "/choose":{
+        component:require("page/choose/choose.js") /*小区选择*/
+    },
+    "success":{
+        component:require("page/success/success.js")
     }
 });
 
 router.start(App,'#app');
-router.go("/login");

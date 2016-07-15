@@ -2,8 +2,7 @@
  * Created by jack on 16/6/4.
  */
 
-fis.set("path","dianli");
-
+fis.set("path","/static/apps/hzdl");
 
 fis.hook("module",{
     mode:"mod"
